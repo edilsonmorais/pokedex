@@ -24,14 +24,29 @@ function convertPokemonToHtml(pokemon){
 
 const pokemonList = document.getElementById('pokemonList')
 
+pokeApi.getPokemons().then((pokemons) => {
+    const newList = pokemons.map((pokemon) => {
+        return pokemon.name
+    })
+
+    console.log(newList)
+})
+
+/* const listItems = []
+
+for(let i =0; i < pokemons.length; i++){
+    const pokemon = pokemons[i];
+    listItems.push(convertPokemonToHtml(pokemon));
+}
+console.log(listItems); */
 
 /* fetch(url2)
     .then((response) => response.json())
     .then((jsonBody) => jsonBody.results)
-    .then((pokemonList) => {
-        for(let i = 0; i < pokemonList.length; i++){
-            const pokemon = pokemonList[i];
-            console.log(convertPokemonToHtml(pokemon))
+    .then((pokemons) => {
+        for(let i = 0; i < pokemons.length; i++){
+            const pokemon = pokemons[i];
+            pokemonList.innerHTML += convertPokemonToHtml(pokemon);
         }
     })
     .catch((error) => console.log(error)) */
